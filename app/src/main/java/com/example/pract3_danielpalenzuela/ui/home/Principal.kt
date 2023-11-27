@@ -52,7 +52,7 @@ import com.example.pract3_danielpalenzuela.ui.objetos.ListaJugadores
 import com.example.pract3_danielpalenzuela.ui.objetos.obtenerPrimerasAparicionesUnicas
 import com.example.pract3_danielpalenzuela.ui.theme.Purple40
 import com.example.pract3_danielpalenzuela.ui.rutas.Rutas
-import androidx.compose.material3.SearchBar
+//import androidx.compose.material3.SearchBar
 
 @Composable
 fun PantallaPrincipal(navController: NavHostController?) {
@@ -127,7 +127,7 @@ fun funcButtons(navController: NavHostController, onBorrarClick: () -> Unit) {
         ) {
             Text(text = "Añadir")
             Icon(
-                painterResource(id = R.drawable.masSimb),
+                painterResource(id = R.drawable.simbolomas),
                 contentDescription = "Accion añadir"
             )
         }
@@ -284,45 +284,45 @@ fun BarraBusqueda(
     var estadoBarra by remember {
         mutableStateOf(false)
     }
-    SearchBar(
-        query = consulta,
-        onQueryChange = {
-            consulta = it
-            onQueryChange(it)
-        },
-        onSearch = {
-            Toast.makeText(context, consulta, Toast.LENGTH_LONG).show()
-            onSearch()
-            estadoBarra = false
-        },
-        active = estadoBarra,
-        onActiveChange = { estadoBarra = it },
-        placeholder = { Text(text = "Buscador") },
-        trailingIcon = {
-            IconButton(onClick = { estadoBarra = false }) {
-                Icon(
-                    painter = painterResource(id = R.drawable.search),
-                    contentDescription = ""
-                )
-            }
-        }
-    ) {
-        LazyColumn {
-            ListaPrimerasAparicionesFiltrada.lista =
-                obtenerPrimerasAparicionesUnicas().filter {
-                    it.startsWith(
-                        consulta,
-                        true
-                    )
-                } as ArrayList<String>
-            items(ListaPrimerasAparicionesFiltrada.lista) {
-                ListItem(modifier = Modifier.clickable {
-                    consulta = it
-                    onQueryChange(it)
-                }, headlineContent = { Text(text = it) })
-            }
-        }
-    }
+//    SearchBar(
+//        query = consulta,
+//        onQueryChange = {
+//            consulta = it
+//            onQueryChange(it)
+//        },
+//        onSearch = {
+//            Toast.makeText(context, consulta, Toast.LENGTH_LONG).show()
+//            onSearch()
+//            estadoBarra = false
+//        },
+//        active = estadoBarra,
+//        onActiveChange = { estadoBarra = it },
+//        placeholder = { Text(text = "Buscador") },
+//        trailingIcon = {
+//            IconButton(onClick = { estadoBarra = false }) {
+//                Icon(
+//                    painter = painterResource(id = R.drawable.search),
+//                    contentDescription = ""
+//                )
+//            }
+//        }
+//    ) {
+//        LazyColumn {
+//            ListaPrimerasAparicionesFiltrada.lista =
+//                obtenerPrimerasAparicionesUnicas().filter {
+//                    it.startsWith(
+//                        consulta,
+//                        true
+//                    )
+//                } as ArrayList<String>
+//            items(ListaPrimerasAparicionesFiltrada.lista) {
+//                ListItem(modifier = Modifier.clickable {
+//                    consulta = it
+//                    onQueryChange(it)
+//                }, headlineContent = { Text(text = it) })
+//            }
+//        }
+//    }
 }
 
 @Composable
